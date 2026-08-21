@@ -1,0 +1,48 @@
+{
+  "runId": "ai-presales-v1-20260817",
+  "phase": "phase0",
+  "step": "figma-connection-required",
+  "fileKey": null,
+  "entities": {
+    "collections": {},
+    "variables": {},
+    "pages": {},
+    "components": {}
+  },
+  "pendingValidations": [
+    "figma-connection",
+    "file-inspection",
+    "library-search"
+  ],
+  "completedSteps": [
+    "P0.a",
+    "P0.d",
+    "P0.e",
+    "P0.f-draft",
+    "scope-approval"
+  ],
+  "localPrototype": {
+    "status": "validated",
+    "entry": "design-prototype/index.html",
+    "viewport": "1440x900",
+    "screens": [
+      "overview",
+      "accounts",
+      "knowledge"
+    ],
+    "checks": [
+      "zero-console-errors",
+      "navigation",
+      "global-service-start-stop",
+      "per-account-pause-enable",
+      "settings-switch-accessibility",
+      "no-conversation-ui",
+      "1280-no-horizontal-overflow"
+    ],
+    "screenshots": [
+      "output/playwright/overview-control-console.png",
+      "output/playwright/accounts.png",
+      "output/playwright/knowledge-control-console.png"
+    ]
+  }
+}

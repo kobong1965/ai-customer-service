@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+    <!-- Typography: WPF uses device-independent pixels and follows Windows DPI scaling. -->
+    <sys:Double x:Key="FontSizeBody">16</sys:Double>
+    <sys:Double x:Key="FontSizeSecondary">14</sys:Double>
+    <sys:Double x:Key="FontSizeControl">16</sys:Double>
+    <sys:Double x:Key="FontSizeSectionTitle">20</sys:Double>
+    <sys:Double x:Key="FontSizePageTitle">28</sys:Double>
+    <sys:Double x:Key="FontSizeMetric">28</sys:Double>
+    <sys:Double x:Key="FontSizeHero">32</sys:Double>
+    <sys:Double x:Key="LineHeightBody">25</sys:Double>
+    <sys:Double x:Key="LineHeightSecondary">22</sys:Double>
+    <sys:Double x:Key="LineHeightSectionTitle">28</sys:Double>
+    <sys:Double x:Key="LineHeightPageTitle">38</sys:Double>
+    <sys:Double x:Key="LineHeightMetric">36</sys:Double>
+
+    <!-- Sizing and rhythm: 8 / 12 / 16 / 24 / 32. -->
+    <sys:Double x:Key="ControlHeight">44</sys:Double>
+    <sys:Double x:Key="CompactControlHeight">32</sys:Double>
+    <sys:Double x:Key="NavigationHeight">48</sys:Double>
+    <sys:Double x:Key="TableRowHeight">52</sys:Double>
+    <sys:Double x:Key="ContentMaxWidth">1920</sys:Double>
+    <Thickness x:Key="Space8">8</Thickness>
+    <Thickness x:Key="Space12">12</Thickness>
+    <Thickness x:Key="Space16">16</Thickness>
+    <Thickness x:Key="Space24">24</Thickness>
+    <Thickness x:Key="Space32">32</Thickness>
+    <Thickness x:Key="PageHeaderMargin">2,8,0,24</Thickness>
+    <Thickness x:Key="CardPadding">24</Thickness>
+    <Thickness x:Key="ControlPadding">14,8</Thickness>
+
+    <!-- Higher-contrast neutral palette for long desktop sessions. -->
+    <SolidColorBrush x:Key="InkBrush" Color="#111712" />
+    <SolidColorBrush x:Key="MutedBrush" Color="#4F5D54" />
+    <SolidColorBrush x:Key="CanvasBrush" Color="#F4F7F5" />
+    <SolidColorBrush x:Key="MintBrush" Color="#EAF3ED" />
+    <SolidColorBrush x:Key="MintStrongBrush" Color="#D8E8DE" />
+    <SolidColorBrush x:Key="BorderBrush" Color="#D5DED8" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="#217A50" />
+    <SolidColorBrush x:Key="SuccessSoftBrush" Color="#E3F3E9" />
+    <SolidColorBrush x:Key="WarningBrush" Color="#8A4B0F" />
+    <SolidColorBrush x:Key="WarningSoftBrush" Color="#FFF0DC" />
+    <SolidColorBrush x:Key="DangerBrush" Color="#B83D3D" />
+    <SolidColorBrush x:Key="DangerSoftBrush" Color="#FAE8E8" />
+</ResourceDictionary>

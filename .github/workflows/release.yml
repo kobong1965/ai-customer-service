@@ -1,0 +1,62 @@
+name: Build and publish Windows release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version without v prefix"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          $version = if ('${{ github.event_name }}' -eq 'workflow_dispatch') {
+            '${{ inputs.version }}'
+          } else {
+            '${{ github.ref_name }}'.TrimStart('v')
+          }
+          "value=$version" >> $env:GITHUB_OUTPUT
+
+      - name: Build, test and package
+        shell: pwsh
+        run: .\scripts\package-release.ps1 -Version '${{ steps.version.outputs.value }}'
+
+      - name: Publish GitHub Release
+        if: github.event_name == 'push'
+        shell: pwsh
+        run: |
+          gh release create '${{ github.ref_name }}' `
+            .\release\AI-Customer-Service-win-x64.zip `
+            .\release\AI-Customer-Service-win-x64.sha256 `
+            --title "AI客服 ${{ steps.version.outputs.value }}" `
+            --generate-notes
+
+      - name: Upload workflow artifact
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-Customer-Service-win-x64-${{ steps.version.outputs.value }}
+          path: |
+            release/AI-Customer-Service-win-x64.zip
+            release/AI-Customer-Service-win-x64.sha256

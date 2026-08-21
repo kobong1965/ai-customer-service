@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI 智能售前 V1 高保真界面设计源">
+  <title>AI 智能售前 · V1 设计原型</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23111312'/%3E%3Cpath d='M7 8h6v16H7zm8 7h5v9h-5zm7-7h3v11h-3zM13 11h9v4h-9z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true">
+          <path d="M4 5h6v18H4zM12 14h6v9h-6zM20 5h4v12h-4z" fill="currentColor"/>
+          <path d="M10 10h10v4H10z" fill="currentColor"/>
+        </svg>
+        <span>售前智服</span>
+      </div>
+
+      <button class="operator-card" type="button" aria-label="查看当前操作员">
+        <span class="avatar avatar-dark">秦</span>
+        <span class="operator-copy"><strong>秦岚</strong><small>客服主管</small></span>
+        <span class="bell-dot" aria-label="有 2 条系统提醒"></span>
+      </button>
+
+      <nav class="nav-grid">
+        <button class="nav-item nav-wide is-active" type="button" data-view="overview" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+          <span>总览</span>
+        </button>
+        <button class="nav-item" type="button" data-view="accounts">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M4 19v-2a5 5 0 0 1 10 0v2M16 7h4M18 5v4M16 13h4M16 17h4"/></svg>
+          <span>账号管理</span>
+        </button>
+        <button class="nav-item" type="button" data-view="knowledge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3V4Z"/><path d="M8 8h7M8 12h7M8 16h4"/></svg>
+          <span>知识库</span>
+        </button>
+        <button class="nav-item" type="button" data-view="rules">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
+          <span>回复规则</span>
+        </button>
+        <button class="nav-item" type="button" data-view="analytics">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V9M12 19V5M19 19v-7"/></svg>
+          <span>运行记录</span>
+        </button>
+        <button class="nav-item" type="button" data-view="settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+          <span>设置</span>
+        </button>
+      </nav>
+
+      <section class="agent-card" aria-label="智能体运行状态">
+        <div class="agent-visual" aria-hidden="true">
+          <svg viewBox="0 0 180 92">
+            <rect x="30" y="23" width="120" height="54" rx="9" fill="#101211"/>
+            <rect x="38" y="31" width="104" height="38" rx="5" fill="#dce9e1"/>
+            <path d="M46 54h19l7-15 12 28 10-20 8 7h31" fill="none" stroke="#101211" stroke-width="4" stroke-linejoin="round"/>
+            <circle cx="44" cy="83" r="7" fill="#101211"/><circle cx="136" cy="83" r="7" fill="#101211"/>
+          </svg>
+        </div>
+        <div class="eyebrow agent-state-label"><span class="status-dot"></span> 智能客服运行中</div>
+        <h2 class="agent-account-count">3 个账号已启用</h2>
+        <p class="agent-state-help">所有对话在原客服平台处理</p>
+        <button class="agent-detail" type="button" data-view="accounts">管理运行账号 <span aria-hidden="true">→</span></button>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg>
+          <input id="global-search" type="search" placeholder="搜索账号、运行记录或设置…" autocomplete="off">
+        </label>
+        <div class="top-actions">
+          <button class="button button-ghost" type="button" id="sync-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M18 10a7 7 0 0 0-12-3L4 9M6 14a7 7 0 0 0 12 3l2-2"/></svg>
+            同步知识
+          </button>
+          <button class="button button-primary" type="button" id="service-button">
+            <span class="pause-icon" aria-hidden="true"></span>
+            <span class="button-label">停止智能客服</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="view is-visible" id="view-overview" aria-labelledby="overview-heading">
+        <h1 class="sr-only" id="overview-heading">智能体总览</h1>
+        <section class="performance-panel">
+          <div class="performance-chart">
+            <div class="section-heading">
+              <div><span class="section-kicker">今日运行</span><h2>智能体运行表现</h2></div>
+              <div class="icon-actions">
+                <button class="icon-button" type="button" aria-label="选择日期"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="14" rx="3"/><path d="M8 3v5M16 3v5M4 10h16"/></svg></button>
+                <button class="icon-button" type="button" aria-label="展开图表"><svg viewBox="0 0 24 24"><path d="M8 16 16 8M10 8h6v6"/></svg></button>
+              </div>
+            </div>
+            <div class="chart-wrap" aria-label="今日每小时智能客服处理数量折线图">
+              <svg class="activity-chart" viewBox="0 0 620 180" role="img" aria-label="上午十点为今日峰值，黑色信号棒表示当前唯一运行任务">
+                <g class="grid-lines"><path d="M0 30h620M0 90h620M0 150h620"/></g>
+                <g class="ghost-bars">
+                  <path d="M18 132v-42h18v42M60 132v-18h18v18M102 132V96h18v36M144 132V74h18v58M186 132V31h18v101M228 132V86h18v46M270 132V55h18v77M312 132v-27h18v27M354 132v-12h18v12M396 132V94h18v38M438 132V72h18v60M480 132v-23h18v23M522 132V58h18v74M564 132v-37h18v37"/>
+                </g>
+                <path class="signal-line" d="M27 90h42v24h42V96h42V74h42V31h42v55h42V55h42v50h42v15h42V94h42V72h42v37h42V58h42v37h42"/>
+                <rect class="active-baton" x="186" y="16" width="18" height="116" rx="1"/>
+                <text x="195" y="8" text-anchor="middle">10:00</text>
+              </svg>
+              <div class="axis-labels"><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span></div>
+              <div class="percent-labels"><span>128</span><span>64</span><span>0</span></div>
+            </div>
+          </div>
+
+          <div class="account-overview">
+            <div class="section-heading compact">
+              <div><span class="section-kicker">运行覆盖</span><h2>账号在线概览</h2></div>
+              <button class="icon-button" type="button" aria-label="账号筛选"><svg viewBox="0 0 24 24"><path d="M5 7h14M8 12h8M10 17h4"/><circle cx="8" cy="7" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="11" cy="17" r="1.7"/></svg></button>
+            </div>
+            <div class="account-total"><strong>3</strong><span>个账号在线</span><small>连接正常</small></div>
+            <div class="load-visual" aria-label="三个账号今日处理量">
+              <svg viewBox="0 0 460 155" role="img" aria-label="旗舰店 66 条、专营店 41 条、会员店 21 条">
+                <g class="connector-lines"><path d="M74 112 206 84 366 105M74 91 206 64 366 84M74 68 206 46 366 61"/></g>
+                <g transform="translate(28 12)"><text x="45" y="0">66</text><rect y="104" width="90" height="22" rx="6" class="stack-dark"/><rect y="78" width="90" height="22" rx="6"/><rect y="52" width="90" height="22" rx="6"/><rect y="26" width="90" height="22" rx="6"/></g>
+                <g transform="translate(162 38)"><text x="45" y="0">41</text><rect y="78" width="90" height="22" rx="6" class="stack-dark"/><rect y="52" width="90" height="22" rx="6"/><rect y="26" width="90" height="22" rx="6"/></g>
+                <g transform="translate(322 56)"><text x="45" y="0">21</text><rect y="60" width="90" height="22" rx="6" class="stack-dark"/><rect y="34" width="90" height="22" rx="6"/></g>
+              </svg>
+            </div>
+            <div class="account-legend"><span><i class="legend-dot black"></i>旗舰店</span><span><i class="legend-dot gray"></i>专营店</span><span><i class="legend-dot pale"></i>会员店</span></div>
+          </div>
+        </section>
+
+        <section class="consultation-section">
+          <div class="consultation-header">
+            <div class="title-count"><h2>账号运行状态</h2><span>3</span></div>
+            <div class="filter-row" role="group" aria-label="账号状态筛选">
+              <button class="filter-chip is-selected" type="button">全部 <strong>3</strong></button>
+              <button class="filter-chip" type="button">运行中 <strong>3</strong></button>
+              <button class="filter-chip" type="button">已暂停 <strong>0</strong></button>
+              <button class="filter-chip" type="button">异常 <strong>0</strong></button>
+              <button class="icon-button sort-button" type="button" aria-label="排序"><svg viewBox="0 0 24 24"><path d="M8 5v14M5 8l3-3 3 3M16 19V5M13 16l3 3 3-3"/></svg></button>
+            </div>
+          </div>
+
+          <div class="account-table" role="table" aria-label="账号运行状态列表">
+            <div class="table-head" role="row">
+              <span role="columnheader">客服账号</span><span role="columnheader">平台连接</span><span role="columnheader">回复模式</span><span role="columnheader">最近动作</span><span role="columnheader">今日处理</span><span role="columnheader">状态</span><span></span>
+            </div>
+            <div class="table-row" role="row">
+              <div class="customer-cell"><span class="avatar avatar-mint">旗</span><div><strong>cleanfit旗舰店</strong><small>账号 01 · 主账号</small></div></div>
+              <div><span class="status-badge success"><i></i>已连接</span><small>窗口与标签已校验</small></div>
+              <div><strong>平台内人工确认</strong><small>智能体只填入</small></div>
+              <div><strong>等待平台新消息</strong><small>刚刚完成一次检查</small></div>
+              <div class="mono"><strong>66</strong><small>成功 65 · 人工 1</small></div>
+              <div><span class="status-badge success"><i></i>运行中</span></div>
+              <div class="row-actions"><button class="row-button" type="button" data-open-accounts>管理账号</button><button class="more-button" type="button" aria-label="更多操作">•••</button></div>
+            </div>
+            <div class="table-row" role="row">
+              <div class="customer-cell"><span class="avatar avatar-warm">专</span><div><strong>简衣专营店</strong><small>账号 02</small></div></div>
+              <div><span class="status-badge success"><i></i>已连接</span><small>窗口与标签已校验</small></div>
+              <div><strong>平台内人工确认</strong><small>智能体只填入</small></div>
+              <div><strong>知识检索完成</strong><small>3 秒前</small></div>
+              <div class="mono"><strong>41</strong><small>成功 40 · 人工 1</small></div>
+              <div><span class="status-badge success"><i></i>运行中</span></div>
+              <div class="row-actions"><button class="row-button" type="button" data-open-accounts>管理账号</button><button class="more-button" type="button" aria-label="更多操作">•••</button></div>
+            </div>
+            <div class="table-row" role="row">
+              <div class="customer-cell"><span class="avatar avatar-sand">会</span><div><strong>简衣会员店</strong><small>账号 03</small></div></div>
+              <div><span class="status-badge success"><i></i>已连接</span><small>窗口与标签已校验</small></div>
+              <div><strong>平台内人工确认</strong><small>智能体只填入</small></div>
+              <div><strong>回复已填入平台</strong><small>18 秒前</small></div>
+              <div class="mono"><strong>21</strong><small>成功 20 · 人工 1</small></div>
+              <div><span class="status-badge success"><i></i>运行中</span></div>
+              <div class="row-actions"><button class="row-button" type="button" data-open-accounts>管理账号</button><button class="more-button" type="button" aria-label="更多操作">•••</button></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="view-accounts" aria-labelledby="accounts-heading" hidden>
+        <div class="view-title-row"><div><span class="section-kicker">对话始终在原客服平台进行</span><h1 id="accounts-heading">账号管理</h1></div><div class="live-label"><span class="status-dot"></span> 3 个账号 · 全部在线</div></div>
+        <div class="account-management-workspace">
+          <aside class="managed-account-list" aria-label="已接入账号">
+            <div class="panel-title"><div><h2>运行账号</h2><span>3</span></div><button class="icon-button" type="button" aria-label="新增账号"><span class="plus-icon"></span></button></div>
+            <p class="panel-help">在这里管理智能体，不处理客户聊天。</p>
+            <div class="managed-account-items">
+              <button class="managed-account-item is-active" type="button"><span class="avatar avatar-mint">旗</span><span><strong>cleanfit旗舰店</strong><small>账号 01 · 主账号</small></span><i class="online-indicator" aria-label="运行中"></i></button>
+              <button class="managed-account-item" type="button"><span class="avatar avatar-warm">专</span><span><strong>简衣专营店</strong><small>账号 02</small></span><i class="online-indicator" aria-label="运行中"></i></button>
+              <button class="managed-account-item" type="button"><span class="avatar avatar-sand">会</span><span><strong>简衣会员店</strong><small>账号 03</small></span><i class="online-indicator" aria-label="运行中"></i></button>
+            </div>
+            <button class="add-account-button" type="button"><span class="plus-icon"></span>接入新的客服账号</button>
+            <div class="platform-boundary-note"><strong>原平台负责对话</strong><p>控制台不读取展示聊天列表，也不提供发送按钮。</p></div>
+          </aside>
+
+          <section class="account-detail-panel">
+            <header class="account-detail-head">
+              <div class="customer-cell"><span class="avatar avatar-mint">旗</span><div><strong>cleanfit旗舰店</strong><small>客服平台标签：tb181813825 · 秦</small></div></div>
+              <div class="account-head-actions"><span class="status-badge success"><i></i>账号运行中</span><button class="button button-danger-soft" type="button" data-account-toggle>暂停此账号</button></div>
+            </header>
+
+            <div class="account-status-grid">
+              <article class="runtime-metric"><span>平台连接</span><strong><i class="metric-dot success-dot"></i>已连接</strong><small>窗口与账号标签已校验</small></article>
+              <article class="runtime-metric"><span>当前阶段</span><strong>监测新消息</strong><small>每 800ms 检查一次变化</small></article>
+              <article class="runtime-metric"><span>回复模式</span><strong>平台内人工确认</strong><small>智能体只填入，不点击发送</small></article>
+              <article class="runtime-metric"><span>今日处理</span><strong class="metric-number">66</strong><small>成功 65 · 人工接管 1</small></article>
+            </div>
+
+            <section class="workflow-card" aria-labelledby="workflow-heading">
+              <div class="card-heading"><div><span class="section-kicker">受限自动化流程</span><h2 id="workflow-heading">客服平台执行流程</h2></div><span class="status-badge success"><i></i>监听中</span></div>
+              <div class="workflow-steps" aria-label="智能客服执行步骤">
+                <div class="runtime-step is-active"><span>01</span><strong>监测新消息</strong><small>当前</small></div>
+                <i aria-hidden="true"></i>
+                <div class="runtime-step"><span>02</span><strong>校验账号</strong><small>安全检查</small></div>
+                <i aria-hidden="true"></i>
+                <div class="runtime-step"><span>03</span><strong>读取上下文</strong><small>原平台</small></div>
+                <i aria-hidden="true"></i>
+                <div class="runtime-step"><span>04</span><strong>生成回复</strong><small>Qwen</small></div>
+                <i aria-hidden="true"></i>
+                <div class="runtime-step"><span>05</span><strong>填入平台</strong><small>人工发送</small></div>
+              </div>
+            </section>
+
+            <div class="account-config-grid">
+              <section class="setting-card">
+                <div class="card-heading"><div><span class="section-kicker">运行控制</span><h2>账号设置</h2></div><button class="row-button" type="button">保存设置</button></div>
+                <div class="setting-row"><span><strong>启用智能客服</strong><small>允许此账号进入处理队列</small></span><button class="setting-switch is-on" type="button" role="switch" aria-checked="true" aria-label="启用智能客服"><i></i></button></div>
+                <div class="setting-row"><span><strong>软件启动时自动监听</strong><small>只恢复监听，不自动发送</small></span><button class="setting-switch is-on" type="button" role="switch" aria-checked="true" aria-label="软件启动时自动监听"><i></i></button></div>
+                <div class="setting-row"><span><strong>异常立即停止</strong><small>校验失败后交给人工处理</small></span><button class="setting-switch is-on" type="button" role="switch" aria-checked="true" aria-label="异常立即停止"><i></i></button></div>
+              </section>
+
+              <section class="setting-card">
+                <div class="card-heading"><div><span class="section-kicker">模型与安全</span><h2>回复策略</h2></div><button class="row-button" type="button">打开规则</button></div>
+                <div class="compact-setting"><span>视觉模型</span><strong>Qwen-VL · 主模型</strong></div>
+                <div class="compact-setting"><span>回复语气</span><strong>亲切、简洁、不做绝对承诺</strong></div>
+                <div class="compact-setting"><span>发送方式</span><strong>填入客服平台，由人工确认</strong></div>
+                <div class="safety-strip"><span>✓</span><p><strong>安全边界已启用</strong>退款、改价、投诉和资料不足时停止任务。</p></div>
+              </section>
+            </div>
+
+            <section class="recent-events-card">
+              <div class="card-heading"><div><span class="section-kicker">不记录聊天正文</span><h2>最近运行事件</h2></div><button class="row-button" type="button">查看全部记录</button></div>
+              <div class="event-row"><time>14:28:16</time><span class="event-icon success-event">✓</span><div><strong>回复已填入客服平台</strong><small>耗时 4.2 秒 · 等待平台内人工确认</small></div><span class="status-badge success"><i></i>完成</span></div>
+              <div class="event-row"><time>14:26:03</time><span class="event-icon warning-event">!</span><div><strong>高风险咨询已交给人工</strong><small>规则命中：订单修改 · 未执行平台输入</small></div><span class="status-badge warning"><i></i>人工接管</span></div>
+              <div class="event-row"><time>14:23:41</time><span class="event-icon success-event">✓</span><div><strong>账号与窗口校验通过</strong><small>客服平台标签和账号配置一致</small></div><span class="status-badge neutral"><i></i>检查</span></div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="view-knowledge" aria-labelledby="knowledge-heading" hidden>
+        <div class="view-title-row"><div><span class="section-kicker">经过审核才会被模型引用</span><h1 id="knowledge-heading">知识库与回复规则</h1></div><div class="top-actions"><button class="button button-ghost" type="button">导入表格</button><button class="button button-primary" type="button"><span class="plus-icon" aria-hidden="true"></span>新增知识</button></div></div>
+        <div class="knowledge-workspace">
+          <aside class="category-panel">
+            <div class="panel-title"><h2>分类</h2><button class="icon-button" type="button" aria-label="新增分类"><span class="plus-icon"></span></button></div>
+            <button class="category-item is-active" type="button"><span>全部知识</span><strong>126</strong></button>
+            <button class="category-item" type="button"><span>商品知识</span><strong>68</strong></button>
+            <button class="category-item" type="button"><span>物流时效</span><strong>16</strong></button>
+            <button class="category-item" type="button"><span>售前问答</span><strong>24</strong></button>
+            <button class="category-item" type="button"><span>售后规则</span><strong>11</strong></button>
+            <button class="category-item danger-item" type="button"><span>禁用承诺</span><strong>7</strong></button>
+            <div class="review-progress"><span>审核覆盖率</span><strong>94%</strong><div><i></i></div><small>还有 8 条草稿未审核</small></div>
+          </aside>
+
+          <section class="knowledge-list-panel">
+            <label class="search-box knowledge-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4"/></svg><input type="search" placeholder="搜索标题、商品或关键词…"></label>
+            <div class="knowledge-filter"><button class="filter-chip is-selected" type="button">全部 126</button><button class="filter-chip" type="button">已审核 118</button><button class="filter-chip" type="button">草稿 8</button></div>
+            <div class="knowledge-list">
+              <button class="knowledge-row is-active" type="button"><div><span class="doc-icon">商</span><span><strong>黑色打褶西裤 · 尺码与库存</strong><small>商品知识 · cleanfit旗舰店</small></span></div><span><em class="status-badge success"><i></i>已审核</em><time>今天 13:42</time></span></button>
+              <button class="knowledge-row" type="button"><div><span class="doc-icon">物</span><span><strong>默认发货时效说明</strong><small>物流时效 · 全部账号</small></span></div><span><em class="status-badge success"><i></i>已审核</em><time>昨天</time></span></button>
+              <button class="knowledge-row" type="button"><div><span class="doc-icon">售</span><span><strong>大促期间发货口径</strong><small>售前问答 · 旗舰店/专营店</small></span></div><span><em class="status-badge warning"><i></i>草稿</em><time>08-15</time></span></button>
+              <button class="knowledge-row" type="button"><div><span class="doc-icon danger-doc">禁</span><span><strong>不得承诺绝对合身</strong><small>禁用承诺 · 全部账号</small></span></div><span><em class="status-badge danger"><i></i>强规则</em><time>08-12</time></span></button>
+              <button class="knowledge-row" type="button"><div><span class="doc-icon">退</span><span><strong>退换货申请引导</strong><small>售后规则 · 全部账号</small></span></div><span><em class="status-badge success"><i></i>已审核</em><time>08-10</time></span></button>
+            </div>
+          </section>
+
+          <aside class="knowledge-editor">
+            <div class="editor-head"><div><span class="section-kicker">知识详情</span><h2>黑色打褶西裤 · 尺码与库存</h2></div><button class="more-button" type="button" aria-label="知识更多操作">•••</button></div>
+            <label class="field"><span>标题</span><input value="黑色打褶西裤 · 尺码与库存"></label>
+            <label class="field"><span>适用范围</span><button class="select-field" type="button">cleanfit旗舰店 · SKU SLNZ-919 <span>⌄</span></button></label>
+            <label class="field"><span>知识正文</span><textarea>黑色加长版现有 M–3XL。3XL 建议腰围 90–96cm；库存以客服平台实时数据为准。回复时可以提供尺码区间，但不得承诺绝对合身。</textarea></label>
+            <div class="tag-field"><span>关键词</span><div><em>黑色西裤</em><em>3XL</em><em>尺码</em><em>库存</em><button type="button">＋</button></div></div>
+            <div class="editor-meta"><div><span>审核状态</span><strong class="approved"><i></i>已审核</strong></div><div><span>风险等级</span><strong>低风险</strong></div><div><span>最近更新</span><strong>秦岚 · 今天 13:42</strong></div></div>
+            <div class="editor-actions"><button class="button button-secondary" type="button">停用</button><button class="button button-primary grow" type="button">保存更改</button></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view placeholder-view" id="view-placeholder" hidden>
+        <div class="placeholder-card"><span class="section-kicker">V1 预留入口</span><h1>该模块将在下一阶段展开</h1><p>当前设计重点是总览、账号管理和知识库。所有客户对话始终留在原客服平台。</p><button class="button button-primary" type="button" data-view="overview">返回总览</button></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.tools/
+.playwright-cli/
+.vs/
+**/bin/
+**/obj/
+TestResults/
+*.user
+*.suo
+*.log
+
+# Generated local packages and visual test output
+artifacts/
+release/
+output/
+
+# Local secrets and user data must never enter source control
+.env
+.env.*
+secrets.json
+appsettings.Local.json
+AgentDeskData/
